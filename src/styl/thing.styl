@@ -1,0 +1,122 @@
+// @import 'maps/base'
+
+$q1 = #f3ceed
+$q2 = #f0a3dc
+$q3 = #ea76cb
+$q4 = #e13dba
+$nodata = #cecece
+
+h2
+	text-align: center
+	padding-bottom 15px
+
+span.nobreak
+	white-space: nowrap;
+
+table.key
+	width 500px
+	margin 0 auto
+	font-family $qz-sans
+	font-size 16px
+	color $qz-chart-axis-text
+
+	td
+		width 25%
+
+		&.cell
+			border-color $qz-map-land-stroke
+			border-width 1px
+			height: 10px
+
+			&.q1
+				background-color $q1
+
+			&.q2
+				background-color $q2
+
+			&.q3
+				background-color $q3
+
+			&.q4
+				background-color $q4
+
+// Paths
+.paths
+	.states path
+		fill none
+		stroke black
+		stroke-width 1.25px
+
+	.counties path
+		fill $qz-map-land-fill
+		stroke $qz-map-land-stroke
+		stroke-width 0.25px
+
+		&.q1
+			fill $q1
+
+		&.q2
+			fill $q2
+
+		&.q3
+			fill $q3
+
+		&.q4
+			fill $q4
+
+		&.nodata
+			fill $nodata
+
+// Labels
+.labels
+	text
+		fill $qz-gray-2
+		font-size 80%
+		text-anchor start
+		alignment-baseline: middle
+		-webkit-font-smoothing antialiased
+
+.footer
+	margin 0
+	padding 0
+	font-family $qz-sans
+	color $qz-gray-2
+	font-size 14px
+	width: 100%
+
+	div
+		float: left
+
+		&.left
+			width: 30%
+
+			div
+				text-align: left
+				padding-left: 5px
+
+		&.right
+			width: 70%
+
+			div
+				text-align: right
+				padding-right 5px
+
+	&:after
+		content: ""
+		display: table
+		clear: both
+
+@media screen and (max-width $width-mobile)
+	table.key
+		width 320px
+		font-size 14px
+
+		.cell
+			line-height 15px
+
+	.paths
+		.states path
+			stroke-width 0.4px
+
+		.counties path
+			stroke-width 0.15px
